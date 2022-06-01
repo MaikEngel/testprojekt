@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instajam</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="JSON.js"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <link rel="shortcut icon" href="img/webcam.png" type="image/x-icon">
+</head>
+
+<body onload="renderPost(); renderStorySection(); proposal()">
+    <header>
+        <div class="header">
+            <div class="headerLeft">
+                <img src="img/headerLogo.png" alt="Instajam" class="headerLogo pointer" onclick="renderPost()">
+            </div>
+            <div class="headerMiddle">
+                <input type="text" placeholder="Suchen" class="inputField" id="search" onkeydown="renderPost()">
+            </div>
+            <div class="headerIcons">
+                <img src="img/home.png" alt="" class="pointer">
+                <img src="img/message.png" alt="" class="pointer marginLeft8px">
+                <img src="img/plus.png" alt="" class="pointer marginLeft8px">
+                <img src="img/compass.png" alt="" class="pointer marginLeft8px">
+                <img src="img/heart.png" alt="" class="pointer marginLeft8px">
+                <img src="img/profilePic.JPG" alt="" class="pointer headerProfile marginLeft8px">
+            </div>
+        </div>
+    </header>
+
+    <div class="main">
+        <div id="contentSection" class="contentSection">
+            <div id="storySection" class="storySection containerStyle">
+                <div id="storys" class="storys">
+                    <div class="postColumn">
+                        <div class="storySectionYes">
+                            <img src="img/profilePic.JPG" alt="" class="picStyle56px">
+                        </div>
+                        <p class="iconSize12px">maik_engel</p>
+
+                    </div>
+                </div>
+            </div>
+            <div id="postSection">
+                <div id="posts">
+
+                </div>
+
+            </div>
+        </div>
+
+        <div id="proposalSection" class="proposalSection">
+            <div class="marginTop30px">
+                <div class="proposalFlexSpaceBetween">
+                    <div class="proposalFlex">
+                        <img src="img/profilePic.JPG" alt="" class="picStyle56px">
+                        <div class="marginLeft16px">
+                            <p class="fontSize14px">maik_engel</p>
+                            <p class="fontSize14px">Maik Engel</p>
+                        </div>
+                    </div>
+                    <button class="posten fontSize14px marginLeft8px pointer"><b>Wechseln</b></button>
+                </div>
+                <div class="marginTop24px">
+                    <div class="commentsSpaceBetween">
+                        <p class="fontSize14px">Vorschläge für dich</p>
+                        <p class="fontSize14px">Alle ansehen</p>
+                    </div>
+                    <div class="marginTop16px marginLeft8px displayFlex justifySpaceBetween flexDirectionColumn"
+                        id="proposal">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</body>
+
+</html>
