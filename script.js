@@ -73,8 +73,10 @@ function renderPost() {
             <span class="material-symbols-outlined marginRight8px pointer">
                 sentiment_satisfied
             </span>
+            <form onsubmit="addComment(${i}, event)" class="displayFlexWidth">
                 <input type="text" required class="commentsInputField" id="inputField${i}">
-                <button class="posten fontSize14px marginLeft8px pointer" onclick="addComment(${i})")"><b>Posten</b></button>
+                <button class="posten fontSize14px marginLeft8px pointer")"><b>Posten</b></button>
+            </form>
         </div>
     </div>`;
                 postHeaderName(i)
@@ -84,22 +86,22 @@ function renderPost() {
 }
 
 
-function addComment(position) {
+function addComment(position, e) {
     let inputField = document.getElementById('inputField' + position);
     let post = posts[position]
-    if (inputField.innerHTML == "") {
-        alert('Bitte Kommentar eingeben!')
-    }else {
-        post['comments'].push(inputField.value);
-        inputField.value = ``;
-        loadComments(position);
-    }
+
+    e.preventDefault();
+
+    post['comments'].push(inputField.value);
+    inputField.value = ``;
+
+    loadComments(position)
 
 }
 
-function loadComments(posistion) {
-    let commentsSection = document.getElementById('commentsSection' + posistion);
-    let post = posts[posistion]
+function loadComments(position) {
+    let commentsSection = document.getElementById('commentsSection' + position);
+    let post = posts[position]
     commentsSection.innerHTML = ``;
     for (let i = 0; i < post['comments'].length; i++) {
         commentsSection.innerHTML += `<div class="commentsSpaceBetween distance4px"><p class="fontSize14px"><b>maik_engel</b> ${post.comments[i]}</p>
@@ -107,6 +109,7 @@ function loadComments(posistion) {
             favorite
         </span></div>`;
     }
+    return false;
 }
 
 function renderStorySection() {
@@ -125,9 +128,7 @@ function renderStorySection() {
                     <div class="storySectionYes">
                     <img src="${postPic}" alt="" class="picStyle56px">
                 </div>
-
                     <p class="iconSize12px">${postName}</p>
-
             </div>
             `;
             }
@@ -201,4 +202,3 @@ function likeSection(position) {
     </p>
     `;
 }
-
