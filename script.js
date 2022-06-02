@@ -87,7 +87,7 @@ function renderPost() {
 function addComment(position) {
     let inputField = document.getElementById('inputField' + position);
     let post = posts[position]
-    if (inputField.innerHTML + position == "") {
+    if (inputField.innerHTML == "") {
         alert('Bitte Kommentar eingeben!')
     }else {
         post['comments'].push(inputField.value);
