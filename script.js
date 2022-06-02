@@ -73,10 +73,8 @@ function renderPost() {
             <span class="material-symbols-outlined marginRight8px pointer">
                 sentiment_satisfied
             </span>
-            <form onsubmit="return Comment(${i})" class="displayFlexWidth">
                 <input type="text" required class="commentsInputField" id="inputField${i}">
-                <button class="posten fontSize14px marginLeft8px pointer")"><b>Posten</b></button>
-            </form>
+                <button class="posten fontSize14px marginLeft8px pointer" onclick="addComment(${i})")"><b>Posten</b></button>
         </div>
     </div>`;
                 postHeaderName(i)
@@ -87,16 +85,22 @@ function renderPost() {
 
 
 function addComment(posistion) {
-    let inputField = document.getElementById('inputField' + posistion);
-    let post = posts[posistion]
-    post['comments'].push(inputField.value);
-    inputField.value = ``;
+    if (inputField + position == 0) {
+        alert('Bitte Kommentar eingeben!')
+    }else {
+        let inputField = document.getElementById('inputField' + posistion);
+        let post = posts[posistion]
+        post['comments'].push(inputField.value);
+        inputField.value = ``;
 
-    loadComments(posistion)
+        loadComments(posistion);
+    }
 
 }
 
 function loadComments(posistion) {
+
+
     let commentsSection = document.getElementById('commentsSection' + posistion);
     let post = posts[posistion]
     commentsSection.innerHTML = ``;
@@ -106,7 +110,6 @@ function loadComments(posistion) {
             favorite
         </span></div>`;
     }
-    return false;
 }
 
 function renderStorySection() {
@@ -201,3 +204,4 @@ function likeSection(position) {
     </p>
     `;
 }
+
