@@ -84,23 +84,20 @@ function renderPost() {
 }
 
 
-function addComment(posistion) {
-    if (inputField + position == 0) {
+function addComment(position) {
+    let inputField = document.getElementById('inputField' + position);
+    let post = posts[position]
+    if (inputField.innerHTML + position == "") {
         alert('Bitte Kommentar eingeben!')
     }else {
-        let inputField = document.getElementById('inputField' + posistion);
-        let post = posts[posistion]
         post['comments'].push(inputField.value);
         inputField.value = ``;
-
-        loadComments(posistion);
+        loadComments(position);
     }
 
 }
 
 function loadComments(posistion) {
-
-
     let commentsSection = document.getElementById('commentsSection' + posistion);
     let post = posts[posistion]
     commentsSection.innerHTML = ``;
